@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Person } from '../person';
-import { PERSONS } from '../mock-persons';
+import { PersonService } from '../person.service';
 
 @Component({
   selector: 'app-persons',
@@ -9,7 +9,7 @@ import { PERSONS } from '../mock-persons';
 })
 export class PersonsComponent implements OnInit {
 
-  persons = PERSONS;
+  persons: Person[];
 
   selectedPerson: Person;
 
@@ -17,9 +17,19 @@ export class PersonsComponent implements OnInit {
     this.selectedPerson = person;
   }
 
-  constructor() { }
+  constructor(private personService: PersonService) { }
 
   ngOnInit() {
+    this.getPersons();
   }
 
+  // for synchronus call
+  /*getPersons(): void {
+    this.persons = this.personService.getPersons();
+  }*/
+
+  // for asynchronus call
+  getPersons(): void {
+    this.personService.getPersons().subscribe(persons => this.persons = persons);
+  }
 }
