@@ -3,4 +3,6 @@ export class Person {
     name: string;
     lastName: string;
     age: number;
+    fechaNacimiento: Date;
+    sexo: string;
 }
