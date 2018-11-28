@@ -1,42 +1,44 @@
 <h2>My list of persons</h2>
 <div style="width: 500px">
   <ul>
-    <li *ngFor="let p of persons" (click)="onSelect(p)">
+    <li *ngFor="let p of persons" (click)="onSelect(p)" [class.selected]="p === person">
       <span class="badge">{{ p.id }}</span> {{ p.name }} {{p.lastName}}
     </li>
   </ul>
 </div>
-<h2>
-  <u>{{ person.name | uppercase }} Details </u>
-</h2>
-<div>
-  <span>id: </span>{{ person.id }}
-</div>
-<div>
-  <label>name:
-    <input [(ngModel)]="person.name" placeholder="name">
-  </label>
-</div>
-<div>
-  <label>last name:
-    <input [(ngModel)]="person.lastName" placeholder="lastName">
-  </label>
-</div>
-<div>
-  <label>age:
-    <input min="0" max="120" onkeypress="return false" style="width: 50px" type="number" [(ngModel)]="person.age" placeholder="age">
-  </label>
-</div>
-<div>
-  <label>date of birth:
-    <input [ngModel]="person.fechaNacimiento | date:'yyyy-MM-dd'" (ngModelChange)="person.fechaNacimiento = $event" type="date">
-  </label>
-</div>
-<div>
-  <label>sex:
-    <select [(ngModel)]="person.sexo">
-      <option>Female</option>
-      <option>Male</option>
-    </select>
-  </label>
+<div *ngIf="person">
+  <h2>
+    <u>{{ person.name | uppercase }} Details </u>
+  </h2>
+  <div>
+    <span>id: </span>{{ person.id }}
+  </div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="person.name" placeholder="name">
+    </label>
+  </div>
+  <div>
+    <label>last name:
+      <input [(ngModel)]="person.lastName" placeholder="lastName">
+    </label>
+  </div>
+  <div>
+    <label>age:
+      <input min="0" max="120" onkeypress="return false" style="width: 50px" type="number" [(ngModel)]="person.age" placeholder="age">
+    </label>
+  </div>
+  <div>
+    <label>date of birth:
+      <input [ngModel]="person.fechaNacimiento | date:'yyyy-MM-dd'" (ngModelChange)="person.fechaNacimiento = $event" type="date">
+    </label>
+  </div>
+  <div>
+    <label>sex:
+      <select [(ngModel)]="person.sexo">
+        <option>Female</option>
+        <option>Male</option>
+      </select>
+    </label>
+  </div>
 </div>

@@ -11,14 +11,7 @@ export class PersonsComponent implements OnInit {
 
   persons = PERSONS;
 
-  person: Person = {
-    id: null,
-    name: null,
-    lastName: null,
-    age: null,
-    fechaNacimiento: null,
-    sexo: null
-  };
+  person: Person;
 
   onSelect(person: Person): void {
     this.person = person;
