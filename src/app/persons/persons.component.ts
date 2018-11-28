@@ -11,11 +11,13 @@ export class PersonsComponent implements OnInit {
 
   persons: Person[];
 
-  selectedPerson: Person;
+  // only use to save a selected object
+  // selectedPerson: Person;
 
-  onSelect(person: Person): void {
-    this.selectedPerson = person;
-  }
+  // use to select an object
+  // onSelect(person: Person): void {
+    // this.selectedPerson = person;
+  // }
 
   constructor(private personService: PersonService) { }
 

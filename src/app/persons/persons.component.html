@@ -1,11 +1,17 @@
 <h2>My list of persons</h2>
 <div style="width: 500px">
   <ul>
-    <li *ngFor="let p of persons" (click)="onSelect(p)" [class.selected]="p === selectedPerson">
+    <!--Example to click a button with angular and change it css class-->
+    <!--<li *ngFor="let p of persons" (click)="onSelect(p)" [class.selected]="p === selectedPerson">
       <span class="badge">{{ p.id }}</span> {{ p.name }} {{p.lastName}}
+    </li>-->
+    <li *ngFor="let p of persons">
+      <a routerLink="/detail/{{p.id}}">
+        <span class="badge">{{ p.id }}</span> {{ p.name }} {{p.lastName}}
+      </a>
     </li>
   </ul>
 </div>
 
-<!-- one ways binding -->
-<app-person-detail [person]="selectedPerson"></app-person-detail>
+<!-- one ways binding 
+<app-person-detail [person]="selectedPerson"></app-person-detail>-->

@@ -17,6 +17,12 @@ export class PersonService {
     return of(PERSONS);
   }
 
+  // asynchronus
+  getPerson(id: number): Observable<Person> {
+    this.messageService.add(`PersonsService: fetched persons id=${id}`);
+    return of(PERSONS.find(person => person.id === id));
+  }
+
   // synchronus
   /*getPersons(): Person[] {
     return PERSONS;
