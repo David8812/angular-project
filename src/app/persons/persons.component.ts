@@ -11,10 +11,10 @@ export class PersonsComponent implements OnInit {
 
   persons = PERSONS;
 
-  person: Person;
+  selectedPerson: Person;
 
   onSelect(person: Person): void {
-    this.person = person;
+    this.selectedPerson = person;
   }
 
   constructor() { }
